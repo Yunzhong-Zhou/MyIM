@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.google.gson.Gson;
 import com.google.gson.internal.$Gson$Types;
+import com.im.myim.MyApplication;
+import com.im.myim.activity.LoginActivity;
+import com.im.myim.utils.CommonUtil;
+import com.im.myim.utils.LocalUserInfo;
 import com.im.myim.utils.MyLogger;
 
 import org.json.JSONException;
@@ -72,12 +76,8 @@ public abstract class CallBackUtil<T> {
                 if (mJsonObject.has("code")) {
                     //数据是否包含code
                     int result_code = mJsonObject.getInt("code");
-                    //保存后台返回的最新时间戳
-//                LocalUserInfo.getInstance(MyApplication.getContext()).setTime(mJsonObject.getString("serverTime"));
                     switch (result_code) {
-                        case 300:
-                            //检测用户账号是否存在-该手机号码在系统中不存在，属于新用户
-                        case 0:
+                        case 200:
                             //数据请求成功-解析数据
                             if (string.indexOf("data") != -1) {
                                 // TODO 有data数据 -解析data
@@ -110,9 +110,9 @@ public abstract class CallBackUtil<T> {
                                 }
                             } else {
                                 //TODO 无data数据 -解析message
-                                if (string.indexOf("msg") != -1) {
+                                if (string.indexOf("message") != -1) {
                                     //TODO 判断有无message数据 -解析message
-                                    String msg = mJsonObject.getString("msg");
+                                    String msg = mJsonObject.getString("message");
                                     mMainHandler.post(new Runnable() {
                                         @Override
                                         public void run() {
@@ -131,36 +131,27 @@ public abstract class CallBackUtil<T> {
                                 }
                             }
                             break;
-                    /*case 600:
-                    case 800:
-                        mMainHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                onFailure(call, null, "Headers验证失败");
-                            }
-                        });
-                        break;*/
-                        case 401:
-                            //会员token无效 - 跳转登录
-                            ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
-//                            LocalUserInfo.getInstance(MyApplication.getContext()).setToken("");
-//                            CommonUtil.gotoActivity(MyApplication.getContext(), LoginActivity.class);
-                            break;
-                        case 50007:
-                            //请求时误差时间超时
+                        case 600:
+                        case 800:
                             mMainHandler.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    onFailure(call, null, "签名验证时间戳误差大，请刷新再试");
+                                    onFailure(call, null, "Headers验证失败");
                                 }
                             });
                             break;
-
-//                    case 40004:
-                        //TODO 没有数据、提交失败 （有冲突，走失败逻辑提示message信息，请求列表数据时，不要提示）
+                        case 700:
+//                    case 500:
+                            //会员token无效 - 跳转登录
+                            ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
+                            LocalUserInfo.getInstance(MyApplication.getContext()).setToken("");
+                            CommonUtil.gotoActivity(MyApplication.getContext(), LoginActivity.class);
+                            break;
+                        case 400:
+                            //TODO 没有数据、提交失败 （有冲突，走失败逻辑提示message信息，请求列表数据时，不要提示）
                         default:
                             //数据请求失败
-                            String msg = mJsonObject.getString("msg");
+                            String msg = mJsonObject.getString("message");
                             mMainHandler.post(new Runnable() {
                                 @Override
                                 public void run() {
@@ -173,18 +164,6 @@ public abstract class CallBackUtil<T> {
                             break;
                     }
                 }
-
-                /*if (mJsonObject.has("token")) {
-                    mMainHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Object o = mGson.fromJson(string, mType);
-                            onResponse((T) o);
-                        }
-                    });
-                }*/
-
-
             } else {
                 //如果数据为空
                 mMainHandler.post(new Runnable() {

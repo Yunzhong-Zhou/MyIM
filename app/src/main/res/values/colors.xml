@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0567F5</color>
-    <color name="colorPrimaryDark">#0567F5</color>
-    <color name="colorAccent">#0567F5</color>
+    <color name="colorPrimary">#FE7893</color>
+    <color name="colorPrimaryDark">#FE7893</color>
+    <color name="colorAccent">#FE7893</color>
 
     <color name="background">#EDEFF2</color>
     <color name="title_bg">#FFFFFF</color>
@@ -26,12 +26,13 @@
     <color name="yellow">#F8BE39</color>
     <color name="green">#11E799</color>
     <color name="grey">#C1C1C1</color>
-    <color name="blue">#0567F5</color>
+    <color name="blue">#007AFF</color>
     <color name="qianblue">#0567F5</color>
     <color name="purple">#7C08C5</color>
     <color name="red">#F10000</color>
     <color name="orange">#F45A06</color>
     <color name="qianorange">#FC8E57</color>
+    <color name="pink">#FE7893</color>
 
     <color name="black">#000000</color>
     <color name="black1">#333333</color>
