@@ -252,7 +252,7 @@ public class LoginActivity extends BaseActivity {
 //                    params.put("action", "1");//1为验证码登陆 2为第三方登陆
 //                    RequestLogin(params);//登录
                 }*/
-                CommonUtil.gotoActivity(LoginActivity.this, BindingPhoneActivity.class, false);
+                CommonUtil.gotoActivity(LoginActivity.this, BindingInfoActivity.class, false);
                 break;
             case R.id.image_wechat:
                 //微信登录
@@ -329,7 +329,7 @@ public class LoginActivity extends BaseActivity {
 
                         CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
                     } else {
-                        CommonUtil.gotoActivity(LoginActivity.this, BindingPhoneActivity.class, false);
+                        CommonUtil.gotoActivity(LoginActivity.this, BindingInfoActivity.class, false);
                     }
                 } else {
                     showToast("请使用技师端账号登录");

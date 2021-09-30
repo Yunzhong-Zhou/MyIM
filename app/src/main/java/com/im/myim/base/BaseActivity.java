@@ -386,6 +386,47 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
         }
 
     }
+    public void showToast(String title,String msg, View.OnClickListener listener1, View.OnClickListener listener2) {
+        //        if (!isFinishing()) {
+//            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+//        }
+        /*if (!isFinishing()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(msg);
+            builder.setTitle(getString(R.string.app_prompt));
+            builder.setPositiveButton(getString(R.string.app_confirm), listener);
+            builder.create().show();
+        }*/
+        if (!isFinishing()) {
+            if (dialog.isShowing() == false) {
+                dialog.contentView(R.layout.dialog_base2)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView1 = dialog.findViewById(R.id.textView1);
+                textView1.setText(title);
+                TextView textView2 = dialog.findViewById(R.id.textView2);
+                textView2.setText(msg);
+                TextView textView3 = dialog.findViewById(R.id.textView3);
+                TextView textView4 = dialog.findViewById(R.id.textView4);
+//                textView3.setText(btntxt1);
+//                textView4.setText(btntxt2);
+                textView3.setOnClickListener(listener1);
+                textView4.setOnClickListener(listener2);
+
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+        }
+
+    }
 
     @Override
     public String getStringbyid(int resId) {

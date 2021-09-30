@@ -432,7 +432,6 @@ public class CommonUtil {
         return str;
     }
 
-
     /**
      * date转年月日
      * @param date

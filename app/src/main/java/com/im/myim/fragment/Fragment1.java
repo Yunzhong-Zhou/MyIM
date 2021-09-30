@@ -19,8 +19,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.im.myim.R;
-import com.im.myim.activity.MainActivity;
 import com.im.myim.activity.SVIPActivity;
+import com.im.myim.activity.UserDetailActivity;
 import com.im.myim.activity.WebContentActivity;
 import com.im.myim.base.BaseFragment;
 import com.im.myim.model.Fragment1Model;
@@ -81,9 +81,9 @@ public class Fragment1 extends BaseFragment implements CardStackListener {
     @Override
     public void onResume() {
         super.onResume();
-        if (MainActivity.item == 0) {
+        /*if (MainActivity.item == 0) {
             requestServer();
-        }
+        }*/
     }
 
     @Override
@@ -193,6 +193,11 @@ public class Fragment1 extends BaseFragment implements CardStackListener {
                 holder.getView(R.id.rl_xindong).setOnClickListener(v -> {
                     //心动弹窗
                     showBuySvipDialog();
+                });
+
+                holder.getView(R.id.cardView).setOnClickListener(v->{
+                    //跳转详情
+                    CommonUtil.gotoActivity(getActivity(), UserDetailActivity.class);
                 });
             }
         };

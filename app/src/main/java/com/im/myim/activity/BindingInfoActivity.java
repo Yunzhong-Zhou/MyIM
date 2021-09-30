@@ -1,25 +1,47 @@
 package com.im.myim.activity;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.blankj.utilcode.util.ActivityUtils;
+import com.blankj.utilcode.util.FileUtils;
+import com.blankj.utilcode.util.ImageUtils;
+import com.blankj.utilcode.util.TimeUtils;
 import com.im.myim.R;
 import com.im.myim.adapter.WaterfallAdapter;
 import com.im.myim.base.BaseActivity;
 import com.im.myim.model.Fragment4Model;
+import com.im.myim.model.UpFileModel;
 import com.im.myim.net.URLs;
 import com.im.myim.okhttp.CallBackUtil;
 import com.im.myim.okhttp.OkhttpUtil;
 import com.im.myim.utils.CommonUtil;
+import com.im.myim.utils.FileUtil;
+import com.im.myim.utils.MyChooseImages;
 import com.im.myim.utils.MyLogger;
 import com.im.myim.view.AutoPollRecyclerView;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,22 +52,29 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import okhttp3.Call;
 import okhttp3.Response;
 
+import static com.im.myim.utils.MyChooseImages.REQUEST_CODE_CAPTURE_CAMEIA;
+import static com.im.myim.utils.MyChooseImages.REQUEST_CODE_PICK_IMAGE;
+
 /**
  * Created by zyz on 2020/6/3.
  * 绑定手机号
  */
-public class BindingPhoneActivity extends BaseActivity {
+public class BindingInfoActivity extends BaseActivity {
     String user_phone="";
 
-    EditText editText1,editText2;
-    TextView tv_confirm;
+    ArrayList<File> listFiles = new ArrayList<>();
+    ImageView imageView1;
+    EditText editText1,editText2,editText3;
+    TextView tv_nan,tv_nv,tv_confirm;
+
+    TimePickerView pvTime1;
 
     private AutoPollRecyclerView recyclerView;
     ArrayList<String> list = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bindingphone);
+        setContentView(R.layout.activity_bindinginfo);
         /*mImmersionBar.reset()
                 .statusBarColor(R.color.background)
                 .fitsSystemWindows(true)  //使用该属性,必须指定状态栏颜色
@@ -61,9 +90,12 @@ public class BindingPhoneActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        imageView1 = findViewByID_My(R.id.imageView1);
         editText1 = findViewByID_My(R.id.editText1);
-        editText1.setText(localUserInfo.getPhonenumber());
         editText2 = findViewByID_My(R.id.editText2);
+        editText3 = findViewByID_My(R.id.editText3);
+        tv_nan = findViewByID_My(R.id.tv_nan);
+        tv_nv = findViewByID_My(R.id.tv_nv);
         tv_confirm = findViewByID_My(R.id.tv_confirm);
 
         recyclerView = findViewByID_My(R.id.recyclerView);
@@ -73,7 +105,7 @@ public class BindingPhoneActivity extends BaseActivity {
         setData();
         WaterfallAdapter adapter= new WaterfallAdapter();
         recyclerView.setAdapter(adapter);
-        adapter.replaceAll(BindingPhoneActivity.this,list);
+        adapter.replaceAll(BindingInfoActivity.this,list);
         recyclerView.start();
 
         recyclerView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener() {
@@ -128,7 +160,24 @@ public class BindingPhoneActivity extends BaseActivity {
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()){
-
+            case R.id.imageView1:
+                //头像
+                MyChooseImages.showPhotoDialog(BindingInfoActivity.this);
+                break;
+            case R.id.tv_nan:
+                //男
+                tv_nan.setBackgroundResource(R.drawable.yuanjiao_18_fense);
+                tv_nv.setBackgroundResource(R.drawable.yuanjiaobiankuang_18_baise);
+                break;
+            case R.id.tv_nv:
+                //女
+                tv_nan.setBackgroundResource(R.drawable.yuanjiaobiankuang_18_baise);
+                tv_nv.setBackgroundResource(R.drawable.yuanjiao_18_fense);
+                break;
+            case R.id.editText2:
+                //选择日期
+                setDate("请选择出生日期", editText2, editText2.getText().toString().trim(), false);
+                break;
             case R.id.tv_confirm:
                 //提交
                 /*if (match()) {
@@ -140,7 +189,7 @@ public class BindingPhoneActivity extends BaseActivity {
                 }*/
 
                 ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
-                CommonUtil.gotoActivity(BindingPhoneActivity.this, MainActivity.class, true);
+                CommonUtil.gotoActivity(BindingInfoActivity.this, MainActivity.class, true);
                 break;
         }
 
@@ -153,9 +202,100 @@ public class BindingPhoneActivity extends BaseActivity {
         }
         return true;
     }
+    //预约时间
+    private void setDate(String string, TextView textView, String date, boolean isNongLi) {
+        //获取当前时间
+        Calendar calendar = Calendar.getInstance();
+        //年
+        int year = calendar.get(Calendar.YEAR);
+        //月
+        int month = calendar.get(Calendar.MONTH);
+        //日
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        //小时
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        //分钟
+        int minute = calendar.get(Calendar.MINUTE);
+        //秒
+        int second = calendar.get(Calendar.SECOND);
+
+        Calendar selectedDate = Calendar.getInstance();
+        Calendar startDate = Calendar.getInstance();
+        Calendar endDate = Calendar.getInstance();
+
+        if (!date.equals("")) {
+            try {
+                String[] strArr = date.split("-");//拆分日期 得到年月日
+                selectedDate.set(Integer.valueOf(strArr[0]), Integer.valueOf(strArr[1]) - 1, Integer.valueOf(strArr[2]));
+            } catch (IllegalStateException e) {
+                // Only fullscreen activities can request orientation
+                e.printStackTrace();
+            }
+
+        }
+
+        //正确设置方式 原因：注意事项有说明
+//        startDate.set(year, month, day);
+        startDate.set(1900, 1, 1);
+
+        //当前时间加3天
+//        calendar.add(Calendar.YEAR, 100);
+        endDate.set(year, month, day);
+        /*endDate.set(calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));*/
+
+
+        pvTime1 = new TimePickerBuilder(BindingInfoActivity.this, new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {//选中事件回调
+//                textView.setText(CommonUtil.date2ymd(date));
+                textView.setText( TimeUtils.date2String(date,"yyyy-MM-dd"));
+            }
+        })
+                .setType(new boolean[]{true, true, true, false, false, false})// 默认全部显示
+                .setCancelText("取消")//取消按钮文字
+                .setSubmitText("确定")//确认按钮文字
+                .setContentTextSize(15)//滚轮文字大小
+                .setTitleSize(16)//标题文字大小
+                .setTitleText(string)//标题文字
+                .setOutSideCancelable(true)//点击屏幕，点在控件外部范围时，是否取消显示
+                .isCyclic(false)//是否循环滚动
+                .setLunarCalendar(isNongLi)//农历开关
+                .setTitleColor(getResources().getColor(R.color.black2))//标题文字颜色
+                .setSubmitColor(getResources().getColor(R.color.pink))//确定按钮文字颜色
+                .setCancelColor(getResources().getColor(R.color.pink))//取消按钮文字颜色
+                .setTitleBgColor(getResources().getColor(R.color.black5))//标题背景颜色 Night mode
+                .setBgColor(getResources().getColor(R.color.white))//滚轮背景颜色 Night mode
+                .setDate(selectedDate)// 如果不设置的话，默认是系统时间*/
+                .setRangDate(startDate, endDate)//起始终止年月日设定
+                .setLabel("年", "月", "日", "时", "分", "秒")//默认设置为年月日时分秒
+                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
+                .isDialog(true)//是否显示为对话框样式
+                .build();
+
+        Dialog mDialog = pvTime1.getDialog();
+        if (mDialog != null) {
+
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    Gravity.BOTTOM);
+            params.leftMargin = 0;
+            params.rightMargin = 0;
+            pvTime1.getDialogContainerLayout().setLayoutParams(params);
+
+            Window dialogWindow = mDialog.getWindow();
+            if (dialogWindow != null) {
+                dialogWindow.setWindowAnimations(com.bigkoo.pickerview.R.style.picker_view_slide_anim);//修改动画样式
+                dialogWindow.setGravity(Gravity.BOTTOM);//改成Bottom,底部显示
+                dialogWindow.setDimAmount(0.1f);
+            }
+        }
+        pvTime1.show();
+    }
     /**
      * 修改信息
-     *
      * @param params
      */
     private void RequestChage(Map<String, String> params) {
@@ -216,7 +356,7 @@ public class BindingPhoneActivity extends BaseActivity {
                 localUserInfo.setUserJob(response.getUser_info().getIsDistri()+"");//为1、有分配权限
 
                 hideProgress();
-                CommonUtil.gotoActivityWithFinishOtherAll(BindingPhoneActivity.this, MainActivity.class, true);
+                CommonUtil.gotoActivityWithFinishOtherAll(BindingInfoActivity.this, MainActivity.class, true);
             }
         });
     }
@@ -225,5 +365,88 @@ public class BindingPhoneActivity extends BaseActivity {
     @Override
     protected void updateView() {
         titleView.setVisibility(View.GONE);
+    }
+
+    /**
+     * *****************************************选择图片********************************************
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            File imgfile = null;
+            String imgpath = null;
+            Uri uri = null;
+            switch (requestCode) {
+                case REQUEST_CODE_CAPTURE_CAMEIA:
+                    //相机
+                    uri = Uri.parse("");
+                    uri = Uri.fromFile(new File(MyChooseImages.imagepath));
+                    imgpath = uri.getPath();
+                    MyLogger.i(">>>>>>>>>选取的文件路径：" + imgpath + ">>>>>后缀名：" + FileUtils.getFileExtension(imgpath));
+                    break;
+                case REQUEST_CODE_PICK_IMAGE:
+                    //相册
+                    uri = data.getData();
+                    imgpath = FileUtil.getPath(this, uri);
+                    MyLogger.i(">>>>>>>>>选取的文件路径：" + imgpath + ">>>>>后缀名：" + FileUtils.getFileExtension(imgpath));
+                    break;
+
+            }
+            if (imgpath != null) {
+
+                //压缩
+                Bitmap bitmap = BitmapFactory.decodeFile(imgpath);
+                //如果是拍照，则旋转
+                if (requestCode == REQUEST_CODE_CAPTURE_CAMEIA) {
+                    bitmap = FileUtil.rotaingImageView(ImageUtils.getRotateDegree(imgpath), bitmap);
+                }
+                imgfile = FileUtil.bytesToImageFile(BindingInfoActivity.this,
+                        ImageUtils.compressByQuality(bitmap, 50));
+
+                imageView1.setImageBitmap(bitmap);
+
+                //上传文件
+                /*showProgress(true, getString(R.string.app_loading1));
+                listFiles.clear();
+                listFiles.add(imgfile);
+                params.clear();
+                params.put("sn", "773EDB6D2715FACF9C93354CAC5B1A3372872DC4D5AC085867C7490E9984D33E");
+                RequestUpFile(params, listFiles, "picture");*/
+            }
+        }
+
+    }
+
+    /**
+     * 上传文件 list 方式
+     *
+     * @param params
+     * @param fileList
+     * @param fileKey
+     */
+    private void RequestUpFile(Map<String, String> params, List<File> fileList, String fileKey) {
+        OkhttpUtil.okHttpUploadListFile(URLs.UpFile, params, fileList, fileKey, "image", headerMap, new CallBackUtil<UpFileModel>() {
+            @Override
+            public UpFileModel onParseResponse(Call call, Response response) {
+                return null;
+            }
+
+            @Override
+            public void onFailure(Call call, Exception e, String err) {
+                hideProgress();
+                if (!err.equals("")) {
+                    showToast(err);
+                }
+            }
+
+            @Override
+            public void onResponse(UpFileModel response) {
+//                myToast("头像修改成功");
+                /*for (String s : response.getList()) {
+                    head_portrait = s;
+                }*/
+            }
+        });
     }
 }
