@@ -4,10 +4,10 @@
         android:color="@color/pink" />
     <!--圆角-->
     <corners
-        android:bottomLeftRadius="3dp"
-        android:bottomRightRadius="3dp"
-        android:topLeftRadius="3dp"
-        android:topRightRadius="3dp" />
+        android:bottomLeftRadius="18dp"
+        android:bottomRightRadius="18dp"
+        android:topLeftRadius="18dp"
+        android:topRightRadius="18dp" />
     <!--边框-->
     <stroke
         android:width="0dp"

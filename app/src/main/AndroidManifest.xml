@@ -102,6 +102,16 @@
         <activity
             android:name=".activity.WebContentActivity"
             android:label="网页" />
+
+
+
+
+
+
+        <!--我的-->
+        <activity
+            android:name=".activity.SVIPActivity"
+            android:label="SVIP" />
     </application>
 
 </manifest>

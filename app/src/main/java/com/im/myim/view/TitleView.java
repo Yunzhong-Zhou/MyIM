@@ -60,7 +60,7 @@ public class TitleView extends FrameLayout {
      * 设置返回的一系列事件
      */
     public void setBack(OnClickListener listener) {
-        btn_left.setImageResource(R.mipmap.ic_return);
+        btn_left.setImageResource(R.mipmap.ic_return_black);
         if (listener != null) {
             btn_left.setOnClickListener(listener);
         } else {

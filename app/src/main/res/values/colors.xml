@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#FE7893</color>
     <color name="colorAccent">#FE7893</color>
 
-    <color name="background">#EDEFF2</color>
+    <color name="background">#F2F2F2</color>
     <color name="title_bg">#FFFFFF</color>
     <color name="btn_bg">#6380a4</color>
     <color name="txt_hint">#D9CECE</color>
@@ -12,8 +12,8 @@
     <color name="default_text">#333333</color>
     <color name="xian">#E3E3E3</color>
 
-    <color name="tab_black">#2E3B47</color>
-    <color name="tab_blue">#0667F4</color>
+    <color name="tab_black">#CECECE</color>
+    <color name="tab_blue">#FC88A0</color>
 
 
     <color name="white">#FFFFFF</color>
@@ -25,11 +25,11 @@
 
     <color name="yellow">#F8BE39</color>
     <color name="green">#11E799</color>
-    <color name="grey">#C1C1C1</color>
+    <color name="grey">#CCCCCC</color>
     <color name="blue">#007AFF</color>
     <color name="qianblue">#0567F5</color>
     <color name="purple">#7C08C5</color>
-    <color name="red">#F10000</color>
+    <color name="red">#EC434C</color>
     <color name="orange">#F45A06</color>
     <color name="qianorange">#FC8E57</color>
     <color name="pink">#FE7893</color>

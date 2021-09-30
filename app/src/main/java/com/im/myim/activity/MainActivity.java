@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
 //    public static BottomTabBar mBottomTabBar;
 
     private EasyNavigationBar navigationBar;
-    private String[] tabText = {"首页", "工作台", "论坛", "我的"};
+    private String[] tabText = {"首页", "动态", "消息", "我的"};
     //未选中icon
     private int[] normalIcon = {R.mipmap.tab1_0, R.mipmap.tab2_0, R.mipmap.tab3_0, R.mipmap.tab4_0};
     //选中时icon
@@ -138,9 +138,9 @@ public class MainActivity extends BaseActivity {
                 .selectIconItems(selectIcon)   //  Tab选中图标集合
                 .fragmentList(fragments)       //  fragment集合
                 .fragmentManager(getSupportFragmentManager())
-                .navigationHeight(40)  //导航栏高度
+                .navigationHeight(44)  //导航栏高度
                 .iconSize(20)     //Tab图标大小
-                .tabTextSize(10)   //Tab文字大小
+                .tabTextSize(11)   //Tab文字大小
                 .tabTextTop(2)     //Tab文字距Tab图标的距离
                 .canScroll(false)    //Viewpager能否左右滑动
                 .smoothScroll(false)  //点击Tab  Viewpager切换是否有动画

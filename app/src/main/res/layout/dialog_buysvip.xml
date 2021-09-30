@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp"
+    android:background="@drawable/yuanjiao_15_baise"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:text="免费心动/滑动次数已用完\n充值SVIP无限次数，不错过对的TA"
+            android:textColor="@color/black1"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="查看更多SVIP特权>"
+            android:textColor="@color/black3"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <RelativeLayout
+                android:id="@+id/rl1"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/ll1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/yuanjiaobiankuang_10_fense_4"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_time1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="3天"
+                        android:textColor="@color/pink"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/tv_price1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:text="0元/天"
+                        android:textColor="@color/pink"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tv_money1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="￥0"
+                        android:background="@drawable/yuanjiao_10_fense_bottom"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_shiyong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/yuanjiao_12_fensejianbian"
+                    android:paddingLeft="14dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="14dp"
+                    android:paddingBottom="5dp"
+                    android:text="免费试用"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <View
+                android:layout_width="7dp"
+                android:layout_height="0dp"/>
+            <RelativeLayout
+                android:id="@+id/rl2"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/yuanjiaobiankuang_10_huise_4"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_time2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="1个月"
+                        android:textColor="@color/grey"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/tv_price2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:text="12元/月"
+                        android:textColor="@color/grey"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tv_money2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="￥12"
+                        android:textColor="@color/grey"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/yuanjiao_12_fensejianbian"
+                    android:paddingLeft="14dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="14dp"
+                    android:paddingBottom="5dp"
+                    android:text="免费试用"
+                    android:visibility="invisible"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <View
+                android:layout_width="7dp"
+                android:layout_height="0dp"/>
+            <RelativeLayout
+                android:id="@+id/rl3"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/ll3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/yuanjiaobiankuang_10_huise_4"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_time3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="3个月"
+                        android:textColor="@color/grey"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/tv_price3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:text="10元/月"
+                        android:textColor="@color/grey"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tv_money3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="￥30"
+                        android:textColor="@color/grey"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/yuanjiao_12_fensejianbian"
+                    android:paddingLeft="14dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="14dp"
+                    android:paddingBottom="5dp"
+                    android:text="免费试用"
+                    android:visibility="invisible"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="34dp"
+            android:lineSpacingExtra="4dp"
+            android:text="3天免费试用，之后12元/月，您可以在设置中取消订阅,
+否则自动续订，确认即代表您同意"
+            android:textColor="@color/black3"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_zhifubao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@mipmap/ic_zhifubao" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:text="支付宝支付"
+                android:textColor="@color/black1"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/iv_zhifubao"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/ic_xuanzhong" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="43dp"
+            android:background="@drawable/btn"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="确认"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/dismiss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="不，谢谢"
+            android:textColor="@color/black3"
+            android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>

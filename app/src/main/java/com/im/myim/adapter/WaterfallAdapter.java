@@ -19,7 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class WaterfallAdapter extends RecyclerView.Adapter<WaterfallAdapter.BaseViewHolder> {
     private ArrayList<String> dataList = new ArrayList<>();
-    public void replaceAll(ArrayList<String> list) {
+    Activity mContext;
+    public void replaceAll(Activity context,ArrayList<String> list) {
+        mContext = context;
         dataList.clear();
         if (list != null && list.size() > 0) {
             dataList.addAll(list);
@@ -64,10 +66,13 @@ public class WaterfallAdapter extends RecyclerView.Adapter<WaterfallAdapter.Base
         void setData(Object data) {
             if (data != null) {
                 String text = (String) data;
-                Glide.with(itemView.getContext()).load(text)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(R.mipmap.zanwutupian)
-                        .into(ivImage);
+                if (!mContext.isFinishing()) {
+                    Glide.with(mContext).load(text)
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .placeholder(R.mipmap.zanwutupian)
+                            .into(ivImage);
+                }
+
 
                 /*//随机图片对应R文件的int值：mArray[index]，实例Drawable类
                 Drawable drawable =getContext().getResources().getDrawable(mArray[index]);

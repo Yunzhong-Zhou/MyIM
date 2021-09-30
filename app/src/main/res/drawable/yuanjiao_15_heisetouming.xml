@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid
-        android:color="@color/pink" />
+        android:color="@color/transparentblack2" />
     <!--圆角-->
     <corners
-        android:bottomLeftRadius="3dp"
-        android:bottomRightRadius="3dp"
-        android:topLeftRadius="3dp"
-        android:topRightRadius="3dp" />
+        android:bottomLeftRadius="15dp"
+        android:bottomRightRadius="15dp"
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp" />
     <!--边框-->
     <stroke
         android:width="0dp"

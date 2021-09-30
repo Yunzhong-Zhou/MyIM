@@ -8,7 +8,8 @@
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="44dp"
+        android:background="@color/title_bg">
         <!--左边按钮-->
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -16,12 +17,12 @@
 
             <ImageView
                 android:id="@+id/left_btn"
-                android:layout_width="56dp"
+                android:layout_width="44dp"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:padding="20dp"
+                android:padding="14dp"
                 android:scaleType="fitCenter"
-                android:src="@mipmap/ic_return" />
+                android:src="@mipmap/ic_return_black" />
 
             <TextView
                 android:id="@+id/left_text"
@@ -86,8 +87,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="56dp"
-            android:layout_marginRight="56dp">
+            android:layout_marginLeft="44dp"
+            android:layout_marginRight="44dp">
 
             <TextView
                 android:id="@+id/title_text"
@@ -96,9 +97,9 @@
                 android:ellipsize="end"
                 android:gravity="center"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textSize="19sp"
-                android:textStyle="bold"
+                android:textColor="@color/black1"
+                android:textSize="15sp"
+                android:textStyle="normal"
                 tools:text="标题" />
 
             <EditText

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.toast.ToastUtils;
@@ -96,6 +97,8 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
         if (dialog != null) {
             dialog.dismiss();
         }
+        //停止该页面的glide的加载请求
+        Glide.with(getApplicationContext()).pauseRequests();
     }
 
     @Override
