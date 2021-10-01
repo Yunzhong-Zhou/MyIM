@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.cretin.tools.scancode.CaptureActivity;
 import com.im.myim.R;
+import com.im.myim.activity.MainActivity;
 import com.im.myim.base.BaseFragment;
 import com.im.myim.utils.CommonUtil;
 import com.im.myim.utils.MyLogger;
@@ -94,6 +95,9 @@ public class Fragment3 extends BaseFragment {
     @Override
     protected void initData() {
         requestServer();
+
+        //
+        ((MainActivity) getActivity()).getNavigationBar().setMsgPointCount(2, 10);
     }
 
     @Override

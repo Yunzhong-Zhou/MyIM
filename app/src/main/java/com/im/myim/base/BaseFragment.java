@@ -38,7 +38,6 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
     protected LoadingLayout loadingLayout;
     protected LocalUserInfo localUserInfo;
     public Map<String, String> headerMap = new HashMap<>();
-    //    protected ImmersionBar mImmersionBar;
     protected BaseDialog dialog;
 
     @Override
@@ -56,8 +55,6 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
 
         dialog = new BaseDialog(getActivity());
 
-//        mImmersionBar = ImmersionBar.with(this);
-//        mImmersionBar.init();   //所有子类都将继承这些相同的属性
 
         initCommonView();
         initView(mParent);
@@ -68,8 +65,6 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
     @Override
     public void onDestroy() {
         super.onDestroy();
-        /*if (mImmersionBar != null)
-            mImmersionBar.destroy();*/
         if (dialog != null) {
             dialog.dismiss();
         }

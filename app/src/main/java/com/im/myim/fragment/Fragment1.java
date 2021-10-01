@@ -30,6 +30,7 @@ import com.im.myim.model.Fragment1Model;
 import com.im.myim.net.URLs;
 import com.im.myim.okhttp.CallBackUtil;
 import com.im.myim.okhttp.OkhttpUtil;
+import com.im.myim.utils.BuySvipDialog;
 import com.im.myim.utils.CommonUtil;
 import com.im.myim.utils.MyLogger;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
@@ -203,7 +204,13 @@ public class Fragment1 extends BaseFragment implements CardStackListener {
 
                 holder.getView(R.id.rl_xindong).setOnClickListener(v -> {
                     //心动弹窗
-                    showBuySvipDialog();
+//                    showBuySvipDialog();
+                    new BuySvipDialog(getActivity(), dialog, true) {
+                        @Override
+                        public void onCallBack() {
+
+                        }
+                    };
                 });
 
                 holder.getView(R.id.cardView).setOnClickListener(v->{

@@ -18,6 +18,7 @@ import com.cy.dialog.BaseDialog;
 import com.im.myim.R;
 import com.im.myim.base.BaseActivity;
 import com.im.myim.net.URLs;
+import com.im.myim.utils.BuySvipDialog;
 import com.im.myim.utils.CommonUtil;
 
 import androidx.annotation.NonNull;
@@ -56,7 +57,13 @@ public class SVIPActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.tv_confirm:
                 //购买SVIP
-                showBuySvipDialog();
+//                showBuySvipDialog();
+                new BuySvipDialog(SVIPActivity.this, dialog, false) {
+                    @Override
+                    public void onCallBack() {
+
+                    }
+                };
                 break;
         }
     }

@@ -46,6 +46,9 @@
         <entry key="app/src/main/res/layout/activity_bindingphone.xml" value="0.27897435897435896" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2490740740740741" />
+        <entry key="app/src/main/res/layout/activity_newsdetail.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_newsnotification.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/activity_publishnews.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_shouhulist.xml" value="0.24818295920675953" />
         <entry key="app/src/main/res/layout/activity_svip.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_userdetail.xml" value="0.25833333333333336" />
@@ -64,6 +67,7 @@
         <entry key="app/src/main/res/layout/dialog_zoomimg.xml" value="0.27897435897435896" />
         <entry key="app/src/main/res/layout/dialog_zoomimg_list.xml" value="0.26927083333333335" />
         <entry key="app/src/main/res/layout/fragment1.xml" value="0.27897435897435896" />
+        <entry key="app/src/main/res/layout/fragment2.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/fragment4.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.12916666666666668" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.12916666666666668" />
@@ -71,8 +75,11 @@
         <entry key="app/src/main/res/layout/item_flowlayout1.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/item_flowlayout2.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/item_fragment1.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_fragment2.xml" value="0.2359375" />
         <entry key="app/src/main/res/layout/item_help.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/item_img_60_60.xml" value="0.2630208333333333" />
+        <entry key="app/src/main/res/layout/item_newsdetail.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/item_newsnotification.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/item_renzheng.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/item_shouhulist.xml" value="0.24537037037037038" />
         <entry key="app/src/main/res/layout/one.xml" value="0.23489583333333333" />

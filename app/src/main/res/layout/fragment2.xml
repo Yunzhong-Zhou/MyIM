@@ -1,30 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/background">
+
+    <RelativeLayout
+        android:id="@+id/headView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="30dp"
+        android:paddingBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="同城"
+                    android:textColor="@color/black1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="25dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/yuanjiao_3_fense" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="全部"
+                    android:textColor="@color/black1"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="25dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/yuanjiao_3_fense"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关注"
+                    android:textColor="@color/black1"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="25dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/yuanjiao_3_fense"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_tongzhi"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="14dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_lingdang" />
+
+            <View
+                android:id="@+id/view_hongdian"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/yuanxing_hongse" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/headView">
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none">
-
-            <LinearLayout
-                android:id="@+id/headView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            android:layout_height="match_parent" />
 
     </com.liaoinstan.springview.widget.SpringView>
+
+    <ImageView
+        android:id="@+id/iv_fabu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_fabu"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="17dp"
+        android:layout_marginBottom="200dp"/>
 </RelativeLayout>

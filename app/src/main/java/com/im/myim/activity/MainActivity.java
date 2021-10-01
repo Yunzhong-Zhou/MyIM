@@ -173,12 +173,12 @@ public class MainActivity extends BaseActivity {
                                 break;
                             case 1:
                                 MainActivity.item = 1;
-//                                mImmersionBar.getTag("common").init();
-                                mImmersionBar.reset()
-//                                        .statusBarColor(R.color.red)
+                                mImmersionBar.getTag("common").init();
+                                /*mImmersionBar.reset()
+                                        .statusBarColor(R.color.white)
                                         .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
                                         .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
-                                        .init();
+                                        .init();*/
                                 break;
                             case 2:
                                 MainActivity.item = 2;
@@ -217,7 +217,7 @@ public class MainActivity extends BaseActivity {
                 .setOnTabLoadListener(new EasyNavigationBar.OnTabLoadListener() { //Tab加载完毕回调
                     @Override
                     public void onTabLoadCompleteEvent() {
-
+                        navigationBar.setMsgPointCount(2, 120);
                     }
                 })
                 .build();
@@ -315,6 +315,7 @@ public class MainActivity extends BaseActivity {
     public EasyNavigationBar getNavigationBar() {
         return navigationBar;
     }
+
     /**
      * 双击退出函数
      */

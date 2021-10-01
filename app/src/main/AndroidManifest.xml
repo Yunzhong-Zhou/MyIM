@@ -94,6 +94,16 @@
             android:name=".activity.ShouHuListActivity"
             android:label="守护列表" />
 
+        <!--动态-->
+        <activity
+            android:name=".activity.PublishNewsActivity"
+            android:label="发布动态" />
+        <activity
+            android:name=".activity.NewsNotificationActivity"
+            android:label="动态通知" />
+        <activity
+            android:name=".activity.NewsDetailActivity"
+            android:label="动态详情" />
         <!-- 我的 -->
         <activity
             android:name=".activity.SVIPActivity"
