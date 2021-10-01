@@ -57,7 +57,7 @@ import static com.im.myim.utils.MyChooseImages.REQUEST_CODE_PICK_IMAGE;
 
 /**
  * Created by zyz on 2020/6/3.
- * 绑定手机号
+ * 绑定信息
  */
 public class BindingInfoActivity extends BaseActivity {
     String user_phone="";

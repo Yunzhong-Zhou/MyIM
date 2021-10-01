@@ -178,13 +178,13 @@
             android:id="@+id/springView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/yuanjiao_15_baise_top"
             android:layout_below="@id/headView">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/yuanjiao_15_baise_top"
                 android:overScrollMode="never" />
 
         </com.liaoinstan.springview.widget.SpringView>

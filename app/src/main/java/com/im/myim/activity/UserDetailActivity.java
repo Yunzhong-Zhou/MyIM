@@ -13,11 +13,15 @@ import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
 import com.cy.dialog.BaseDialog;
 import com.im.myim.R;
+import com.im.myim.adapter.CircleImageAdapter;
 import com.im.myim.base.BaseActivity;
 import com.im.myim.model.CommonModel;
 import com.im.myim.popupwindow.PhotoShowDialog;
 import com.im.myim.utils.CommonUtil;
 import com.liaoinstan.springview.widget.SpringView;
+import com.youth.banner.Banner;
+import com.youth.banner.listener.OnBannerListener;
+import com.youth.banner.listener.OnPageChangeListener;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -32,11 +36,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by Mr.Z on 2021/9/30.
+ * 用户详情
  */
 public class UserDetailActivity extends BaseActivity {
     List<String> list_more = new ArrayList<>();
     List<String> list_jubao = new ArrayList<>();
 
+    Banner banner;
+    TextView tv_zhishiqi;
     //基本标签
     List<CommonModel> list_jiben = new ArrayList<>();
     FlowLayout flowLayout1;
@@ -63,6 +70,9 @@ public class UserDetailActivity extends BaseActivity {
         mImmersionBar.reset().init();
         setContentView(R.layout.activity_userdetail);
         findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+
+        //添加生命周期观察者
+        banner.addBannerLifecycleObserver(this);
     }
 
     @Override
@@ -82,6 +92,50 @@ public class UserDetailActivity extends BaseActivity {
             public void onLoadmore() {
             }
         });
+
+        //设置数据
+        setData();
+
+        tv_zhishiqi = findViewByID_My(R.id.tv_zhishiqi);
+        banner = findViewByID_My(R.id.banner);
+        banner.addBannerLifecycleObserver(this)//添加生命周期观察者
+                .setLoopTime(3000)//设置轮播时间
+//                .setBannerGalleryEffect(10, 10)//为banner添加画廊效果
+                .setUserInputEnabled(true)//手指可滑动
+                .setAdapter(new CircleImageAdapter(this, list_img))
+//                .setIndicator(new CircleIndicator(this))//圆形指示器
+//                .setIndicatorGravity(IndicatorConfig.Direction.RIGHT)//指示器位置
+                .start();
+        //banner点击监听
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(Object data, int position) {
+                /*Bundle bundle = new Bundle();
+                bundle.putInt("type", response.getBanner().get(position).getType());
+                CommonUtil.gotoActivityWithData(JiFenShangChengActivity.this, JiFenLieBiaoActivity.class, bundle, false);*/
+                PhotoShowDialog photoShowDialog = new PhotoShowDialog(UserDetailActivity.this, list_img, position);
+                photoShowDialog.show();
+            }
+        });
+        //banner滑动监听
+        banner.addOnPageChangeListener(new OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                tv_zhishiqi.setText((position+1) + "/" + list_img.size());
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
         //基本标签
         flowLayout1 = findViewByID_My(R.id.flowLayout1);
         flowLayoutAdapter1 = new FlowLayoutAdapter<CommonModel>(list_jiben) {
@@ -115,6 +169,36 @@ public class UserDetailActivity extends BaseActivity {
             @Override
             public void onItemClick(int position, CommonModel bean) {
 //                        showToast("点击" + position);
+                switch (position){
+                    case 1:
+                        //土豪值弹窗
+                        dialog.contentView(R.layout.dialog_tuhao)
+                                .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                        ViewGroup.LayoutParams.WRAP_CONTENT))
+                                .animType(BaseDialog.AnimInType.BOTTOM)
+                                .canceledOnTouchOutside(true)
+                                .gravity(Gravity.CENTER)
+                                .dimAmount(0.5f)
+                                .show();
+                        dialog.findViewById(R.id.dismiss).setOnClickListener(v -> {
+                            dialog.dismiss();
+                        });
+                        break;
+                    case 2:
+                        //魅力值弹窗
+                        dialog.contentView(R.layout.dialog_meili)
+                                .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                        ViewGroup.LayoutParams.WRAP_CONTENT))
+                                .animType(BaseDialog.AnimInType.BOTTOM)
+                                .canceledOnTouchOutside(true)
+                                .gravity(Gravity.CENTER)
+                                .dimAmount(0.5f)
+                                .show();
+                        dialog.findViewById(R.id.dismiss).setOnClickListener(v -> {
+                            dialog.dismiss();
+                        });
+                        break;
+                }
             }
 
             @Override
@@ -156,7 +240,6 @@ public class UserDetailActivity extends BaseActivity {
         });
         rv1.setAdapter(ca1);
 
-        setData();
         ca1.notifyDataSetChanged();
 
         //认证信息
@@ -310,7 +393,13 @@ public class UserDetailActivity extends BaseActivity {
                 break;
             case R.id.tv_shouhu:
                 //守护TA
-                dialogShouHu();
+                dialogShouHu("赠送2600金币以上的礼物，就能成为TA的守护神", "立即守护TA", 1);
+                break;
+            case R.id.tv_weixin:
+                //获取微信
+                dialogShouHu("亲密度达到520℃，才有机会获得对方微信哦！", "立即搭讪", 2);
+//                dialogShouHu("赠送对方礼物才有机会获得对方微信哦！","立即送礼",3);
+//                dialogShouHu("等待对方同意中", "继续聊天",4);
                 break;
 
         }
@@ -421,7 +510,7 @@ public class UserDetailActivity extends BaseActivity {
     /**
      * 守护弹窗
      */
-    private void dialogShouHu() {
+    private void dialogShouHu(String content, String btn1, int type) {
         dialog.contentView(R.layout.dialog_common)
                 .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -433,10 +522,16 @@ public class UserDetailActivity extends BaseActivity {
         ImageView imageView1 = dialog.findViewById(R.id.imageView1);
         TextView textView1 = dialog.findViewById(R.id.textView1);
         TextView textView2 = dialog.findViewById(R.id.textView2);
+        TextView textView3 = dialog.findViewById(R.id.textView3);
+        textView2.setText(content);
+        textView3.setText(btn1);
+        if (btn1.equals("立即守护TA")) dialog.findViewById(R.id.iv).setVisibility(View.VISIBLE);
+        else dialog.findViewById(R.id.iv).setVisibility(View.GONE);
 
         dialog.findViewById(R.id.linearLayout).setOnClickListener(v -> {
             dialog.dismiss();
-            CommonUtil.gotoActivity(UserDetailActivity.this, ShouHuListActivity.class, false);
+            if (type == 1)
+                CommonUtil.gotoActivity(UserDetailActivity.this, ShouHuListActivity.class, false);
         });
         dialog.findViewById(R.id.textView4).setOnClickListener(v -> {
             dialog.dismiss();

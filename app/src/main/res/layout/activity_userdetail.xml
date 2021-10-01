@@ -4,53 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--banner-->
-    <com.youth.banner.Banner
-        android:id="@+id/banner"
-        android:layout_width="match_parent"
-        android:layout_height="375dp" />
-
-    <LinearLayout
-        android:id="@+id/headView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/left_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:onClick="onClick"
-            android:padding="12dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_return1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:id="@+id/right_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:onClick="onClick"
-            android:padding="12dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_more"
-            android:visibility="visible" />
-
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/headView"
         android:orientation="vertical">
         <!--只需要刷新只写header-->
         <com.liaoinstan.springview.widget.SpringView
@@ -66,13 +22,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="270dp">
+                    android:layout_height="match_parent">
+                    <!--banner-->
+                    <com.youth.banner.Banner
+                        android:id="@+id/banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="76dp"
+                        android:layout_marginTop="360dp"
                         android:background="@drawable/yuanjiao_10_baise_top"
                         android:orientation="vertical"
                         android:paddingLeft="20dp"
@@ -295,15 +255,18 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="280dp"
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/tv_weixin"
                             android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@drawable/yuanjiao_18_heisetouming_right"
                             android:drawableLeft="@mipmap/ic_wechat_green"
                             android:drawablePadding="5dp"
                             android:gravity="center_vertical"
+                            android:onClick="onClick"
                             android:paddingLeft="5dp"
                             android:paddingRight="10dp"
                             android:text="TA的微信"
@@ -382,6 +345,18 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                    <!--图片指示器-->
+                    <TextView
+                        android:id="@+id/tv_zhishiqi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="330dp"
+                        android:layout_marginRight="20dp"
+                        android:text="0/0"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
 
                 </RelativeLayout>
 
@@ -389,5 +364,41 @@
         </com.liaoinstan.springview.widget.SpringView>
     </LinearLayout>
 
+    <!--标题栏-->
+    <LinearLayout
+        android:id="@+id/headView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:id="@+id/left_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="onClick"
+            android:padding="12dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_return1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/right_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="onClick"
+            android:padding="12dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_more"
+            android:visibility="visible" />
+
+    </LinearLayout>
 </RelativeLayout>

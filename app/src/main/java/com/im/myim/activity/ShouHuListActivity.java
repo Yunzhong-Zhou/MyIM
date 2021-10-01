@@ -15,7 +15,10 @@ import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+/**
+ * Created by Mr.Z on 2021/9/30.
+ * 守护列表
+ */
 public class ShouHuListActivity extends BaseActivity {
     List<String> list = new ArrayList<>();
     RecyclerView recyclerView;
