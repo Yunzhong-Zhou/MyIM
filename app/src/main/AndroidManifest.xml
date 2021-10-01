@@ -1,95 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.im.myim">
-    <!--网络权限问题-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--用于获取运营商信息，用于支持提供运营商信息相关的接口-->
+    package="com.im.myim" >
+    <!-- 网络权限问题 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!--用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--用于访问GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!--用于申请调用A-GPS模块-->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-
-    <!--8.0安装需要的权限-->
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <!--读写权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 8.0安装需要的权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 读写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <!--读取手机信息-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--打电话-->
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <!-- 相机 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <!--9.0权限-->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <!-- Android Q后台定位权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 读取手机信息 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 9.0权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Android Q后台定位权限 -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
     <uses-permission
         android:name="android.permission.CHANGE_CONFIGURATION"
-        tools:ignore="ProtectedPermissions" />
-
-    <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
-    <uses-permission android:name="android.permission.GET_TASKS" />
-
-
-    <!--录音权限-->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <!-- Camera features - recommended -->
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
-
-    <!-- 振动 -->
+        tools:ignore="ProtectedPermissions" /> <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 录音权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- Camera features - recommended -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" /> <!-- 振动 -->
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
+        android:configChanges="locale"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:configChanges="locale"
         android:largeHeap="true"
         android:maxAspectRatio="2.4"
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        android:windowIsTranslucent="false">
+        android:windowIsTranslucent="false" >
         <activity
             android:name=".activity.HelloActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"><!--//全屏-->
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- //全屏 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.GuideActivity"
             android:label="引导页"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name=".activity.MainActivity"
-            android:label="主页">
-            <!--点击通知默认打开-->
+            android:label="主页" >
+
+            <!-- 点击通知默认打开 -->
             <intent-filter>
                 <action android:name="${applicationId}.default.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -105,14 +86,15 @@
 
 
 
-        <!--首页-->
+        <!-- 首页 -->
         <activity
             android:name=".activity.UserDetailActivity"
             android:label="用户详情" />
+        <activity
+            android:name=".activity.ShouHuListActivity"
+            android:label="守护列表" />
 
-
-
-        <!--我的-->
+        <!-- 我的 -->
         <activity
             android:name=".activity.SVIPActivity"
             android:label="SVIP" />

@@ -17,12 +17,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.cy.cyflowlayoutlibrary.FlowLayout;
+import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
 import com.cy.dialog.BaseDialog;
 import com.im.myim.R;
 import com.im.myim.activity.SVIPActivity;
 import com.im.myim.activity.UserDetailActivity;
 import com.im.myim.activity.WebContentActivity;
 import com.im.myim.base.BaseFragment;
+import com.im.myim.model.CommonModel;
 import com.im.myim.model.Fragment1Model;
 import com.im.myim.net.URLs;
 import com.im.myim.okhttp.CallBackUtil;
@@ -159,36 +162,44 @@ public class Fragment1 extends BaseFragment implements CardStackListener {
                         .placeholder(R.mipmap.loading)//加载站位图
                         .error(R.mipmap.zanwutupian)//加载失败
                         .into(iv);//加载图片
+
+                List<CommonModel> list_jiben = new ArrayList<>();
+                list_jiben.add(new CommonModel("0", R.mipmap.ic_nan));
+                list_jiben.add(new CommonModel("0cm", null));
+                list_jiben.add(new CommonModel("0kg", null));
+                list_jiben.add(new CommonModel("job", null));
+                list_jiben.add(new CommonModel("address", null));
+
                 //标签
-                /*FlowLayoutAdapter<Fragment3Model.ListBean.StoreServiceListBean> flowLayoutAdapter1 =
-                        new FlowLayoutAdapter<Fragment3Model.ListBean.StoreServiceListBean>
-                                (model.getStore_service_list()) {
-                            @Override
-                            public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position,
-                                                       Fragment3Model.ListBean.StoreServiceListBean bean) {
-//                                holder.setText(R.id.tv,bean);
-                                TextView tv = holder.getView(R.id.tv);
-                                tv.setText(bean.getYStateValue());
-                                    *//*tv.setTextColor(getResources().getColor(R.color.black1));
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);*//*
-                            }
+                FlowLayoutAdapter<CommonModel> flowLayoutAdapter1 = new FlowLayoutAdapter<CommonModel>(list_jiben) {
+                    @Override
+                    public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, CommonModel bean) {
+                        LinearLayout ll = holder.getView(R.id.ll);
+                        ImageView iv = holder.getView(R.id.iv);
+                        if (bean.getImg()!=null){
+                            iv.setVisibility(View.VISIBLE);
+                            iv.setImageDrawable(getResources().getDrawable(bean.getImg()));
+                        }else {
+                            iv.setVisibility(View.GONE);
+                        }
 
-                            @Override
-                            public void onItemClick(int position, Fragment3Model.ListBean.StoreServiceListBean bean) {
+                        TextView tv = holder.getView(R.id.tv);
+                        tv.setText(bean.getName());
+//                tv.setTextColor(getResources().getColor(R.color.white));
+
+                    }
+
+                    @Override
+                    public void onItemClick(int position, CommonModel bean) {
 //                        showToast("点击" + position);
-                                Bundle bundle = new Bundle();
-                                bundle.putString("id", model.getYStoreId());
-                                bundle.putString("longitude", longitude);
-                                bundle.putString("latitude", latitude);
-                                bundle.putString("keys", "");
-                                CommonUtil.gotoActivityWithData(getActivity(), StoreDetailActivity.class, bundle, false);
-                            }
+                    }
 
-                            @Override
-                            public int getItemLayoutID(int position, Fragment3Model.ListBean.StoreServiceListBean bean) {
-                                return R.layout.item_fragment3_flowlayout1;
-                            }
-                        };*/
+                    @Override
+                    public int getItemLayoutID(int position, CommonModel bean) {
+                        return R.layout.item_flowlayout2;
+                    }
+                };
+                ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter1);
 
                 holder.getView(R.id.rl_xindong).setOnClickListener(v -> {
                     //心动弹窗
@@ -464,7 +475,7 @@ public class Fragment1 extends BaseFragment implements CardStackListener {
             CommonUtil.gotoActivity(getActivity(), SVIPActivity.class, false);
         });
         dialog.findViewById(R.id.tv_confirm).setOnClickListener(v -> {
-//            dialog.dismiss();
+            dialog.dismiss();
             //支付宝支付
         });
 

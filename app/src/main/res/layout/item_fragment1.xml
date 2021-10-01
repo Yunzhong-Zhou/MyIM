@@ -71,10 +71,10 @@
                 android:orientation="vertical">
 
                 <com.cy.cyflowlayoutlibrary.FlowLayout
-                    android:id="@+id/flowLayout"
+                    android:id="@+id/flowLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="7dp"
                     android:layout_weight="1"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"

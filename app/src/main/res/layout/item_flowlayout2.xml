@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/yuanjiao_10_baisetouming"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingLeft="8dp"
+    android:paddingTop="3dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="3dp">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/ic_nv" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+</LinearLayout>

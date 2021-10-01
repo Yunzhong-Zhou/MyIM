@@ -11,10 +11,15 @@
         <entry key="app/src/main/res/drawable/et_focused.xml" value="0.284375" />
         <entry key="app/src/main/res/drawable/et_normal.xml" value="0.284375" />
         <entry key="app/src/main/res/drawable/xuxian_huise_heng.xml" value="0.284375" />
+        <entry key="app/src/main/res/drawable/yuanjiao_10_baisetouming.xml" value="0.2296875" />
+        <entry key="app/src/main/res/drawable/yuanjiao_10_fense.xml" value="0.2296875" />
         <entry key="app/src/main/res/drawable/yuanjiao_10_fense_4.xml" value="0.287962962962963" />
         <entry key="app/src/main/res/drawable/yuanjiao_10_fense_bottom.xml" value="0.28102564102564104" />
         <entry key="app/src/main/res/drawable/yuanjiao_10_huise_bottom.xml" value="0.287962962962963" />
         <entry key="app/src/main/res/drawable/yuanjiao_10_lvsejianbian.xml" value="0.287962962962963" />
+        <entry key="app/src/main/res/drawable/yuanjiao_10_zise.xml" value="0.2296875" />
+        <entry key="app/src/main/res/drawable/yuanjiao_12_fensejianbian.xml" value="0.28102564102564104" />
+        <entry key="app/src/main/res/drawable/yuanjiao_12_huangsejianbian.xml" value="0.28102564102564104" />
         <entry key="app/src/main/res/drawable/yuanjiao_15_baise_top.xml" value="0.287962962962963" />
         <entry key="app/src/main/res/drawable/yuanjiao_15_heisetouming.xml" value="0.287962962962963" />
         <entry key="app/src/main/res/drawable/yuanjiao_15_lanse.xml" value="0.2984375" />
@@ -28,25 +33,43 @@
         <entry key="app/src/main/res/drawable/yuanjiaobiankuang_10_fense_4.xml" value="0.287962962962963" />
         <entry key="app/src/main/res/drawable/yuanjiaobiankuang_10_huise_4.xml" value="0.28102564102564104" />
         <entry key="app/src/main/res/drawable/yuanjiaobiankuang_13_fense.xml" value="0.287962962962963" />
+        <entry key="app/src/main/res/drawable/yuanjiaobiankuang_13_huise.xml" value="0.2712820512820513" />
         <entry key="app/src/main/res/drawable/yuanjiaobiankuang_18_baise.xml" value="0.284375" />
         <entry key="app/src/main/res/drawable/yuanjiaobiankuang_20_fense.xml" value="0.287962962962963" />
+        <entry key="app/src/main/res/drawable/yuanjiaobiankuang_20_huise.xml" value="0.24427083333333333" />
+        <entry key="app/src/main/res/drawable/yuanxing_fensejianbian.xml" value="0.28102564102564104" />
+        <entry key="app/src/main/res/drawable/yuanxing_hongse.xml" value="0.28102564102564104" />
         <entry key="app/src/main/res/layout/activity_bindinginfo.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_bindingphone.xml" value="0.27897435897435896" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2490740740740741" />
+        <entry key="app/src/main/res/layout/activity_shouhulist.xml" value="0.24818295920675953" />
         <entry key="app/src/main/res/layout/activity_svip.xml" value="0.2833333333333333" />
-        <entry key="app/src/main/res/layout/activity_userdetail.xml" value="0.18377469252450887" />
+        <entry key="app/src/main/res/layout/activity_userdetail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/base_layout.xml" value="0.2490740740740741" />
+        <entry key="app/src/main/res/layout/content_shou_hu_list.xml" value="0.2421875" />
         <entry key="app/src/main/res/layout/dialog_base1.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/dialog_base2.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/dialog_base3.xml" value="0.2421875" />
         <entry key="app/src/main/res/layout/dialog_buysvip.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/dialog_common.xml" value="0.2421875" />
         <entry key="app/src/main/res/layout/dialog_list_center.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/dialog_share.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/dialog_upgrade.xml" value="0.23846153846153847" />
         <entry key="app/src/main/res/layout/dialog_zoomimg.xml" value="0.27897435897435896" />
+        <entry key="app/src/main/res/layout/dialog_zoomimg_list.xml" value="0.26927083333333335" />
         <entry key="app/src/main/res/layout/fragment1.xml" value="0.27897435897435896" />
         <entry key="app/src/main/res/layout/fragment4.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.12916666666666668" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.12916666666666668" />
+        <entry key="app/src/main/res/layout/image.xml" value="0.2421875" />
+        <entry key="app/src/main/res/layout/item_flowlayout1.xml" value="0.259375" />
+        <entry key="app/src/main/res/layout/item_flowlayout2.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/item_fragment1.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_help.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/item_img_60_60.xml" value="0.2630208333333333" />
+        <entry key="app/src/main/res/layout/item_renzheng.xml" value="0.259375" />
+        <entry key="app/src/main/res/layout/item_shouhulist.xml" value="0.24537037037037038" />
         <entry key="app/src/main/res/layout/one.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/layout/view_empty.xml" value="0.27897435897435896" />
         <entry key="app/src/main/res/layout/view_title.xml" value="0.2490740740740741" />

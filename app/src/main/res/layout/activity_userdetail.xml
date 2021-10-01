@@ -116,9 +116,9 @@
                             android:id="@+id/flowLayout1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="10dp"
                             android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
+                            android:paddingBottom="15dp"
                             app:height_space="5dp"
                             app:width_space="10dp" />
 
@@ -133,35 +133,40 @@
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
                             android:layout_marginTop="20dp"
-                            android:background="@color/xian"/>
+                            android:background="@color/xian" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="最新动态（0）"
-                            android:textColor="@color/black1"
+                            android:drawableRight="@mipmap/ic_next_black"
                             android:paddingTop="20dp"
                             android:paddingBottom="20dp"
-                            android:textStyle="bold"
-                            android:drawableRight="@mipmap/ic_next_black"
-                            android:textSize="15sp" />
+                            android:text="最新动态（0）"
+                            android:textColor="@color/black1"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
                             android:layout_marginTop="20dp"
-                            android:background="@color/xian"/>
+                            android:background="@color/xian" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="5dp"
                             android:text="认证信息"
                             android:textColor="@color/black1"
-                            android:paddingTop="20dp"
-                            android:paddingBottom="20dp"
-                            android:textStyle="bold"
-                            android:textSize="15sp" />
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv2"
                             android:layout_width="match_parent"
@@ -171,82 +176,92 @@
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
                             android:layout_marginTop="20dp"
-                            android:background="@color/xian"/>
+                            android:background="@color/xian" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="基本资料"
-                            android:textColor="@color/black1"
                             android:paddingTop="20dp"
                             android:paddingBottom="15dp"
-                            android:textStyle="bold"
-                            android:textSize="15sp" />
+                            android:text="基本资料"
+                            android:textColor="@color/black1"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
                         <com.cy.cyflowlayoutlibrary.FlowLayout
                             android:id="@+id/flowLayout2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            app:height_space="5dp"
+                            android:paddingTop="0dp"
+                            android:paddingBottom="0dp"
+                            app:height_space="12dp"
                             app:width_space="10dp" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
                             android:layout_marginTop="20dp"
-                            android:background="@color/xian"/>
+                            android:background="@color/xian" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="我的标签"
-                            android:textColor="@color/black1"
                             android:paddingTop="20dp"
                             android:paddingBottom="15dp"
-                            android:textStyle="bold"
-                            android:textSize="15sp" />
+                            android:text="我的标签"
+                            android:textColor="@color/black1"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
                         <com.cy.cyflowlayoutlibrary.FlowLayout
                             android:id="@+id/flowLayout3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            app:height_space="5dp"
+                            android:paddingTop="0dp"
+                            android:paddingBottom="0dp"
+                            app:height_space="12dp"
                             app:width_space="10dp" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
                             android:layout_marginTop="20dp"
-                            android:background="@color/xian"/>
+                            android:background="@color/xian" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="个性签名"
-                            android:textColor="@color/black1"
                             android:paddingTop="20dp"
                             android:paddingBottom="15dp"
-                            android:textStyle="bold"
-                            android:textSize="15sp" />
+                            android:text="个性签名"
+                            android:textColor="@color/black1"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:paddingBottom="60dp"
                             android:text="Content"
                             android:textColor="@color/black2"
-                            android:paddingBottom="60dp"
-                            android:textStyle="normal"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center"
+                            android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:layout_marginBottom="20dp"
-                            android:layout_gravity="center_horizontal">
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
+                                android:layout_marginRight="15dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/yuanjiao_20_fense"
                                 android:drawableLeft="@mipmap/ic_xin_white1"
@@ -254,13 +269,14 @@
                                 android:gravity="center"
                                 android:paddingLeft="30dp"
                                 android:paddingRight="30dp"
-                                android:layout_marginRight="15dp"
                                 android:text="心动"
                                 android:textColor="@color/white"
                                 android:textSize="15sp" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
+                                android:layout_marginLeft="15dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/yuanjiaobiankuang_20_fense"
                                 android:drawableLeft="@mipmap/ic_message_pink"
@@ -268,7 +284,6 @@
                                 android:gravity="center"
                                 android:paddingLeft="30dp"
                                 android:paddingRight="30dp"
-                                android:layout_marginLeft="15dp"
                                 android:text="私信"
                                 android:textColor="@color/pink"
                                 android:textSize="15sp" />
@@ -310,13 +325,13 @@
 
                             <TextView
                                 android:id="@+id/tv_shouhu"
-                                android:onClick="onClick"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:layout_centerHorizontal="true"
                                 android:background="@mipmap/ic_chibang"
                                 android:gravity="center"
+                                android:onClick="onClick"
                                 android:text="守护TA"
                                 android:textColor="@color/white"
                                 android:textSize="13sp" />
